@@ -29,6 +29,7 @@ namespace AutoInsertInDatabaseOnRussian
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.checkList = new System.Windows.Forms.Panel();
             this.PasportNumber = new System.Windows.Forms.CheckBox();
@@ -54,9 +55,15 @@ namespace AutoInsertInDatabaseOnRussian
             this.label1 = new System.Windows.Forms.Label();
             this.listTables = new System.Windows.Forms.ComboBox();
             this.listDatabases = new System.Windows.Forms.ComboBox();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AutoInsert = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AdditionallyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkList.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countRecords)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // checkList
@@ -79,7 +86,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.checkList.Enabled = false;
             this.checkList.Location = new System.Drawing.Point(364, 12);
             this.checkList.Name = "checkList";
-            this.checkList.Size = new System.Drawing.Size(344, 457);
+            this.checkList.Size = new System.Drawing.Size(198, 457);
             this.checkList.TabIndex = 33;
             // 
             // PasportNumber
@@ -352,6 +359,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.listTables.Name = "listTables";
             this.listTables.Size = new System.Drawing.Size(184, 28);
             this.listTables.TabIndex = 1;
+            this.listTables.SelectedIndexChanged += new System.EventHandler(this.listTables_SelectedIndexChanged);
             // 
             // listDatabases
             // 
@@ -365,11 +373,68 @@ namespace AutoInsertInDatabaseOnRussian
             this.listDatabases.TabIndex = 0;
             this.listDatabases.SelectedIndexChanged += new System.EventHandler(this.ListDatabases_SelectedValueChanged);
             // 
+            // dataGrid
+            // 
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameColumn,
+            this.TypeColumn,
+            this.AutoInsert,
+            this.AdditionallyColumn});
+            this.dataGrid.Location = new System.Drawing.Point(566, 12);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.RowHeadersVisible = false;
+            this.dataGrid.Size = new System.Drawing.Size(680, 456);
+            this.dataGrid.TabIndex = 34;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.Frozen = true;
+            this.NameColumn.HeaderText = "Название столбца";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NameColumn.Width = 250;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.Frozen = true;
+            this.TypeColumn.HeaderText = "Тип данных";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TypeColumn.Width = 150;
+            // 
+            // AutoInsert
+            // 
+            this.AutoInsert.HeaderText = "Автозаполнение";
+            this.AutoInsert.Items.AddRange(new object[] {
+            "null",
+            "Имя",
+            "Отчество",
+            "Фамилия"});
+            this.AutoInsert.Name = "AutoInsert";
+            this.AutoInsert.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.AutoInsert.Width = 150;
+            // 
+            // AdditionallyColumn
+            // 
+            this.AdditionallyColumn.HeaderText = "Дополнительно";
+            this.AdditionallyColumn.Name = "AdditionallyColumn";
+            this.AdditionallyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.AdditionallyColumn.Width = 125;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 480);
+            this.ClientSize = new System.Drawing.Size(1283, 480);
+            this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.checkList);
             this.Controls.Add(this.GoInsertData);
             this.Controls.Add(this.groupBox1);
@@ -383,6 +448,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countRecords)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -413,6 +479,11 @@ namespace AutoInsertInDatabaseOnRussian
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox listTables;
         private System.Windows.Forms.ComboBox listDatabases;
+        private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn AutoInsert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionallyColumn;
     }
 }
 

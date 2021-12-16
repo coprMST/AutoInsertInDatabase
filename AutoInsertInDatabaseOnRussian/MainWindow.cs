@@ -234,10 +234,7 @@ namespace AutoInsertInDatabaseOnRussian
             {
                 dataGrid.Rows[i].Cells[0].Value = dataTable.Rows[i][3];
                 dataGrid.Rows[i].Cells[1].Value = dataTable.Rows[i][5] + " (" + dataTable.Rows[i][6] + ")";
-                if (dataTable.Rows[i][17].ToString() == "NO")
-                    dataGrid.Rows[i].Cells[1].Value += " null";
-                else
-                    dataGrid.Rows[i].Cells[1].Value += " not null";
+                var aboba = dataTable.Rows[i][17].ToString() == "NO" ? dataGrid.Rows[i].Cells[1].Value += " not null" : dataGrid.Rows[i].Cells[1].Value += " null";
                 dataGrid.Rows[i].Cells[2].Value = AutoInsert.Items[0];
             }
         }

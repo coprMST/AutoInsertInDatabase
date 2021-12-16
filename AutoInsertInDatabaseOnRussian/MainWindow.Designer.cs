@@ -415,9 +415,24 @@ namespace AutoInsertInDatabaseOnRussian
             this.AutoInsert.HeaderText = "Автозаполнение";
             this.AutoInsert.Items.AddRange(new object[] {
             "null",
+            "my insert",
+            "Логин",
+            "Пароль",
+            "Фамилия",
             "Имя",
             "Отчество",
-            "Фамилия"});
+            "Дата рождения",
+            "Пол",
+            "Номер телефона",
+            "Электронная почта",
+            "Домашний адрес",
+            "Код паспорта",
+            "Серия паспорта",
+            "Номер паспорта",
+            "Серия и номер паспорта",
+            "Страна",
+            "Регион",
+            "Город"});
             this.AutoInsert.Name = "AutoInsert";
             this.AutoInsert.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.AutoInsert.Width = 150;

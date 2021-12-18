@@ -108,7 +108,6 @@ namespace AutoInsertInDatabaseOnRussian
 
             for (int i = 0; i < int.Parse(countRecords.Value.ToString()); i++)
             {
-
                 valuesTable += "(";
                 for (int j = 0; j < dataGrid.RowCount; j++)
                 {
@@ -132,9 +131,7 @@ namespace AutoInsertInDatabaseOnRussian
                                 valuesTable += $"'{gnd.Remove(1, Math.Abs(gnd.Length - 1))}', ";
                             }
                             else
-                            {
                                 valuesTable += genderMan.Checked ? "'М', " : "'Ж', ";
-                            }
                             break;
 
                         case "Пол (полностью)":
@@ -161,6 +158,7 @@ namespace AutoInsertInDatabaseOnRussian
                         case "Специальность": valuesTable += $"'{jsonObject[i]["EduSpecialty"].Value<string>()}', "; break;
                         case "Название специальности": valuesTable += $"'{jsonObject[i]["EduProgram"].Value<string>()}', "; break;
                         case "Название ОУ": valuesTable += $"'{jsonObject[i]["EduName"].Value<string>()}', "; break;
+                        case "my insert": valuesTable += $"'{dataGrid.Rows[j].Cells[3].Value}', "; break;     
                         default: break;
                     }
                 }

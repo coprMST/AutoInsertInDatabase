@@ -40,10 +40,6 @@ namespace AutoInsertInDatabaseOnRussian
             this.listTables = new System.Windows.Forms.ComboBox();
             this.listDatabases = new System.Windows.Forms.ComboBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AutoInsert = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AdditionallyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderUnset = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.genderWoman = new System.Windows.Forms.RadioButton();
@@ -52,6 +48,10 @@ namespace AutoInsertInDatabaseOnRussian
             this.insertInAll = new System.Windows.Forms.RadioButton();
             this.insertInCB = new System.Windows.Forms.RadioButton();
             this.insertInDB = new System.Windows.Forms.RadioButton();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AutoInsert = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AdditionallyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countRecords)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -62,12 +62,12 @@ namespace AutoInsertInDatabaseOnRussian
             // goInsertData
             // 
             this.goInsertData.Enabled = false;
-            this.goInsertData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.goInsertData.Location = new System.Drawing.Point(12, 166);
+            this.goInsertData.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.goInsertData.Location = new System.Drawing.Point(12, 327);
             this.goInsertData.Name = "goInsertData";
             this.goInsertData.Size = new System.Drawing.Size(346, 83);
             this.goInsertData.TabIndex = 32;
-            this.goInsertData.Text = "Внести записи";
+            this.goInsertData.Text = "START";
             this.goInsertData.UseVisualStyleBackColor = true;
             this.goInsertData.Click += new System.EventHandler(this.GoInsertData_Click);
             // 
@@ -181,62 +181,8 @@ namespace AutoInsertInDatabaseOnRussian
             this.dataGrid.Location = new System.Drawing.Point(390, 12);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.Size = new System.Drawing.Size(680, 456);
+            this.dataGrid.Size = new System.Drawing.Size(680, 398);
             this.dataGrid.TabIndex = 34;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.Frozen = true;
-            this.NameColumn.HeaderText = "Название столбца";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            this.NameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NameColumn.Width = 250;
-            // 
-            // TypeColumn
-            // 
-            this.TypeColumn.Frozen = true;
-            this.TypeColumn.HeaderText = "Тип данных";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
-            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TypeColumn.Width = 150;
-            // 
-            // AutoInsert
-            // 
-            this.AutoInsert.HeaderText = "Автозаполнение";
-            this.AutoInsert.Items.AddRange(new object[] {
-            "null",
-            "my insert",
-            "random",
-            "Логин",
-            "Пароль",
-            "Фамилия",
-            "Имя",
-            "Отчество",
-            "Дата рождения",
-            "Пол (в первую букву)",
-            "Пол (полностью)",
-            "Номер телефона",
-            "Электронная почта",
-            "Домашний адрес",
-            "Код паспорта",
-            "Серия паспорта",
-            "Номер паспорта",
-            "Серия и номер паспорта",
-            "Страна",
-            "Регион",
-            "Город"});
-            this.AutoInsert.Name = "AutoInsert";
-            this.AutoInsert.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.AutoInsert.Width = 150;
-            // 
-            // AdditionallyColumn
-            // 
-            this.AdditionallyColumn.HeaderText = "Дополнительно";
-            this.AdditionallyColumn.Name = "AdditionallyColumn";
-            this.AdditionallyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.AdditionallyColumn.Width = 125;
             // 
             // genderUnset
             // 
@@ -257,7 +203,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.groupBox2.Controls.Add(this.genderMan);
             this.groupBox2.Controls.Add(this.genderUnset);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 253);
+            this.groupBox2.Location = new System.Drawing.Point(18, 164);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(346, 61);
             this.groupBox2.TabIndex = 36;
@@ -292,7 +238,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.groupBox4.Controls.Add(this.insertInCB);
             this.groupBox4.Controls.Add(this.insertInDB);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 320);
+            this.groupBox4.Location = new System.Drawing.Point(18, 231);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(346, 90);
             this.groupBox4.TabIndex = 39;
@@ -334,11 +280,69 @@ namespace AutoInsertInDatabaseOnRussian
             this.insertInDB.Text = "В базу данных";
             this.insertInDB.UseVisualStyleBackColor = true;
             // 
+            // NameColumn
+            // 
+            this.NameColumn.Frozen = true;
+            this.NameColumn.HeaderText = "Название столбца";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NameColumn.Width = 250;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.Frozen = true;
+            this.TypeColumn.HeaderText = "Тип данных";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TypeColumn.Width = 150;
+            // 
+            // AutoInsert
+            // 
+            this.AutoInsert.HeaderText = "Автозаполнение";
+            this.AutoInsert.Items.AddRange(new object[] {
+            "null",
+            "random",
+            "Логин",
+            "Пароль",
+            "Фамилия",
+            "Имя",
+            "Отчество",
+            "Дата рождения",
+            "Пол (в первую букву)",
+            "Пол (полностью)",
+            "Номер телефона",
+            "Электронная почта",
+            "Домашний адрес",
+            "Код паспорта",
+            "Серия паспорта",
+            "Номер паспорта",
+            "Серия и номер паспорта",
+            "Кем выдан",
+            "Дата выдачи паспорта",
+            "Страна",
+            "Регион",
+            "Город",
+            "Специальность",
+            "Название специальности",
+            "Название ОУ"});
+            this.AutoInsert.Name = "AutoInsert";
+            this.AutoInsert.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.AutoInsert.Width = 150;
+            // 
+            // AdditionallyColumn
+            // 
+            this.AdditionallyColumn.HeaderText = "Дополнительно";
+            this.AdditionallyColumn.Name = "AdditionallyColumn";
+            this.AdditionallyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.AdditionallyColumn.Width = 125;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 483);
+            this.ClientSize = new System.Drawing.Size(1089, 432);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGrid);

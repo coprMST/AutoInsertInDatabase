@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Net.Http;
-using System.Data;
-using System.Configuration.Assemblies;
 
 namespace AutoInsertInDatabaseOnRussian
 {
@@ -60,7 +50,11 @@ namespace AutoInsertInDatabaseOnRussian
             string cmd = GetCommandToInsert(jsonObject);
 
             if (insertInCB.Checked || insertInAll.Checked)
+            {
                 Clipboard.SetText(cmd);
+                if (insertInCB.Checked)
+                    MessageBox.Show("Работа с данными была успешно проведена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             if (insertInAll.Checked || insertInDB.Checked)
                 using (var connection = new SqlConnection(connectionString))
@@ -87,6 +81,7 @@ namespace AutoInsertInDatabaseOnRussian
                                 command.CommandText = cmd;
                                 command.ExecuteNonQuery();
                             }
+                            MessageBox.Show("Работа с данными была успешно проведена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception ex)

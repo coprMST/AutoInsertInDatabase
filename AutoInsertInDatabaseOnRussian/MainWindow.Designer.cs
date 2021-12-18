@@ -106,7 +106,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.countRecords.Size = new System.Drawing.Size(184, 26);
             this.countRecords.TabIndex = 5;
             this.countRecords.Value = new decimal(new int[] {
-            2,
+            10,
             0,
             0,
             0});
@@ -225,7 +225,7 @@ namespace AutoInsertInDatabaseOnRussian
             // 
             this.genderMan.AutoSize = true;
             this.genderMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genderMan.Location = new System.Drawing.Point(114, 25);
+            this.genderMan.Location = new System.Drawing.Point(119, 25);
             this.genderMan.Name = "genderMan";
             this.genderMan.Size = new System.Drawing.Size(92, 24);
             this.genderMan.TabIndex = 36;
@@ -351,7 +351,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AutoInsertInDatabase";
+            this.Text = "AutoInsertInDatabase v1.2";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

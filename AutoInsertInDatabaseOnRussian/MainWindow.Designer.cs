@@ -63,7 +63,7 @@ namespace AutoInsertInDatabaseOnRussian
             // 
             this.goInsertData.Enabled = false;
             this.goInsertData.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.goInsertData.Location = new System.Drawing.Point(12, 327);
+            this.goInsertData.Location = new System.Drawing.Point(19, 327);
             this.goInsertData.Name = "goInsertData";
             this.goInsertData.Size = new System.Drawing.Size(346, 83);
             this.goInsertData.TabIndex = 32;
@@ -80,7 +80,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.groupBox1.Controls.Add(this.listTables);
             this.groupBox1.Controls.Add(this.listDatabases);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(19, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(346, 146);
             this.groupBox1.TabIndex = 31;
@@ -178,10 +178,10 @@ namespace AutoInsertInDatabaseOnRussian
             this.AutoInsert,
             this.AdditionallyColumn});
             this.dataGrid.Enabled = false;
-            this.dataGrid.Location = new System.Drawing.Point(390, 12);
+            this.dataGrid.Location = new System.Drawing.Point(393, 12);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.Size = new System.Drawing.Size(680, 398);
+            this.dataGrid.Size = new System.Drawing.Size(678, 398);
             this.dataGrid.TabIndex = 34;
             // 
             // genderUnset
@@ -189,7 +189,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.genderUnset.AutoSize = true;
             this.genderUnset.Checked = true;
             this.genderUnset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genderUnset.Location = new System.Drawing.Point(13, 25);
+            this.genderUnset.Location = new System.Drawing.Point(12, 25);
             this.genderUnset.Name = "genderUnset";
             this.genderUnset.Size = new System.Drawing.Size(78, 24);
             this.genderUnset.TabIndex = 35;
@@ -200,21 +200,21 @@ namespace AutoInsertInDatabaseOnRussian
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.genderWoman);
-            this.groupBox2.Controls.Add(this.genderMan);
             this.groupBox2.Controls.Add(this.genderUnset);
+            this.groupBox2.Controls.Add(this.genderMan);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(18, 164);
+            this.groupBox2.Location = new System.Drawing.Point(19, 164);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(346, 61);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Пол";
+            this.groupBox2.Text = "Пол   ";
             // 
             // genderWoman
             // 
             this.genderWoman.AutoSize = true;
             this.genderWoman.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genderWoman.Location = new System.Drawing.Point(217, 25);
+            this.genderWoman.Location = new System.Drawing.Point(242, 25);
             this.genderWoman.Name = "genderWoman";
             this.genderWoman.Size = new System.Drawing.Size(92, 24);
             this.genderWoman.TabIndex = 37;
@@ -225,7 +225,7 @@ namespace AutoInsertInDatabaseOnRussian
             // 
             this.genderMan.AutoSize = true;
             this.genderMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genderMan.Location = new System.Drawing.Point(108, 25);
+            this.genderMan.Location = new System.Drawing.Point(114, 25);
             this.genderMan.Name = "genderMan";
             this.genderMan.Size = new System.Drawing.Size(92, 24);
             this.genderMan.TabIndex = 36;
@@ -238,12 +238,12 @@ namespace AutoInsertInDatabaseOnRussian
             this.groupBox4.Controls.Add(this.insertInCB);
             this.groupBox4.Controls.Add(this.insertInDB);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(18, 231);
+            this.groupBox4.Location = new System.Drawing.Point(19, 231);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(346, 90);
             this.groupBox4.TabIndex = 39;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Вставка данных";
+            this.groupBox4.Text = "Вставка данных   ";
             // 
             // insertInAll
             // 
@@ -273,7 +273,7 @@ namespace AutoInsertInDatabaseOnRussian
             // 
             this.insertInDB.AutoSize = true;
             this.insertInDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.insertInDB.Location = new System.Drawing.Point(6, 25);
+            this.insertInDB.Location = new System.Drawing.Point(12, 25);
             this.insertInDB.Name = "insertInDB";
             this.insertInDB.Size = new System.Drawing.Size(135, 24);
             this.insertInDB.TabIndex = 35;
@@ -303,7 +303,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.AutoInsert.HeaderText = "Автозаполнение";
             this.AutoInsert.Items.AddRange(new object[] {
             "null",
-            "random",
+            "my insert",
             "Логин",
             "Пароль",
             "Фамилия",

@@ -31,23 +31,7 @@ namespace AutoInsertInDatabaseOnRussian
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.checkList = new System.Windows.Forms.Panel();
-            this.PasportNumber = new System.Windows.Forms.CheckBox();
-            this.Region = new System.Windows.Forms.CheckBox();
-            this.City = new System.Windows.Forms.CheckBox();
-            this.Country = new System.Windows.Forms.CheckBox();
-            this.Email = new System.Windows.Forms.CheckBox();
-            this.Phone = new System.Windows.Forms.CheckBox();
-            this.Password = new System.Windows.Forms.CheckBox();
-            this.Login = new System.Windows.Forms.CheckBox();
-            this.Gender = new System.Windows.Forms.CheckBox();
-            this.DateOfBirth = new System.Windows.Forms.CheckBox();
-            this.PasportSerial = new System.Windows.Forms.CheckBox();
-            this.Address = new System.Windows.Forms.CheckBox();
-            this.FatherName = new System.Windows.Forms.CheckBox();
-            this.FirstName = new System.Windows.Forms.CheckBox();
-            this.LastName = new System.Windows.Forms.CheckBox();
-            this.GoInsertData = new System.Windows.Forms.Button();
+            this.goInsertData = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.countRecords = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,224 +44,32 @@ namespace AutoInsertInDatabaseOnRussian
             this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AutoInsert = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.AdditionallyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkList.SuspendLayout();
+            this.genderUnset = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.genderWoman = new System.Windows.Forms.RadioButton();
+            this.genderMan = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.insertInAll = new System.Windows.Forms.RadioButton();
+            this.insertInCB = new System.Windows.Forms.RadioButton();
+            this.insertInDB = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countRecords)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // checkList
+            // goInsertData
             // 
-            this.checkList.Controls.Add(this.PasportNumber);
-            this.checkList.Controls.Add(this.Region);
-            this.checkList.Controls.Add(this.City);
-            this.checkList.Controls.Add(this.Country);
-            this.checkList.Controls.Add(this.Email);
-            this.checkList.Controls.Add(this.Phone);
-            this.checkList.Controls.Add(this.Password);
-            this.checkList.Controls.Add(this.Login);
-            this.checkList.Controls.Add(this.Gender);
-            this.checkList.Controls.Add(this.DateOfBirth);
-            this.checkList.Controls.Add(this.PasportSerial);
-            this.checkList.Controls.Add(this.Address);
-            this.checkList.Controls.Add(this.FatherName);
-            this.checkList.Controls.Add(this.FirstName);
-            this.checkList.Controls.Add(this.LastName);
-            this.checkList.Enabled = false;
-            this.checkList.Location = new System.Drawing.Point(364, 12);
-            this.checkList.Name = "checkList";
-            this.checkList.Size = new System.Drawing.Size(198, 457);
-            this.checkList.TabIndex = 33;
-            // 
-            // PasportNumber
-            // 
-            this.PasportNumber.AutoSize = true;
-            this.PasportNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PasportNumber.Location = new System.Drawing.Point(12, 332);
-            this.PasportNumber.Name = "PasportNumber";
-            this.PasportNumber.Size = new System.Drawing.Size(158, 24);
-            this.PasportNumber.TabIndex = 45;
-            this.PasportNumber.Text = "Номер_паспорта";
-            this.PasportNumber.UseVisualStyleBackColor = true;
-            // 
-            // Region
-            // 
-            this.Region.AutoSize = true;
-            this.Region.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Region.Location = new System.Drawing.Point(12, 392);
-            this.Region.Name = "Region";
-            this.Region.Size = new System.Drawing.Size(81, 24);
-            this.Region.TabIndex = 43;
-            this.Region.Text = "Регион";
-            this.Region.UseVisualStyleBackColor = true;
-            // 
-            // City
-            // 
-            this.City.AutoSize = true;
-            this.City.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.City.Location = new System.Drawing.Point(12, 422);
-            this.City.Name = "City";
-            this.City.Size = new System.Drawing.Size(75, 24);
-            this.City.TabIndex = 42;
-            this.City.Text = "Город";
-            this.City.UseVisualStyleBackColor = true;
-            // 
-            // Country
-            // 
-            this.Country.AutoSize = true;
-            this.Country.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Country.Location = new System.Drawing.Point(12, 362);
-            this.Country.Name = "Country";
-            this.Country.Size = new System.Drawing.Size(84, 24);
-            this.Country.TabIndex = 41;
-            this.Country.Text = "Страна";
-            this.Country.UseVisualStyleBackColor = true;
-            // 
-            // Email
-            // 
-            this.Email.AutoSize = true;
-            this.Email.Checked = true;
-            this.Email.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Email.Location = new System.Drawing.Point(12, 242);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(184, 24);
-            this.Email.TabIndex = 40;
-            this.Email.Text = "Электронная_почта";
-            this.Email.UseVisualStyleBackColor = true;
-            // 
-            // Phone
-            // 
-            this.Phone.AutoSize = true;
-            this.Phone.Checked = true;
-            this.Phone.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Phone.Location = new System.Drawing.Point(12, 212);
-            this.Phone.Name = "Phone";
-            this.Phone.Size = new System.Drawing.Size(166, 24);
-            this.Phone.TabIndex = 39;
-            this.Phone.Text = "Номер_телефона";
-            this.Phone.UseVisualStyleBackColor = true;
-            // 
-            // Password
-            // 
-            this.Password.AutoSize = true;
-            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Password.Location = new System.Drawing.Point(12, 32);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(86, 24);
-            this.Password.TabIndex = 38;
-            this.Password.Text = "Пароль";
-            this.Password.UseVisualStyleBackColor = true;
-            // 
-            // Login
-            // 
-            this.Login.AutoSize = true;
-            this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Login.Location = new System.Drawing.Point(12, 2);
-            this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(74, 24);
-            this.Login.TabIndex = 37;
-            this.Login.Text = "Логин";
-            this.Login.UseVisualStyleBackColor = true;
-            // 
-            // Gender
-            // 
-            this.Gender.AutoSize = true;
-            this.Gender.Checked = true;
-            this.Gender.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Gender.Location = new System.Drawing.Point(12, 182);
-            this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(59, 24);
-            this.Gender.TabIndex = 36;
-            this.Gender.Text = "Пол";
-            this.Gender.UseVisualStyleBackColor = true;
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.AutoSize = true;
-            this.DateOfBirth.Checked = true;
-            this.DateOfBirth.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.DateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DateOfBirth.Location = new System.Drawing.Point(12, 152);
-            this.DateOfBirth.Name = "DateOfBirth";
-            this.DateOfBirth.Size = new System.Drawing.Size(152, 24);
-            this.DateOfBirth.TabIndex = 35;
-            this.DateOfBirth.Text = "Дата_рождения";
-            this.DateOfBirth.UseVisualStyleBackColor = true;
-            // 
-            // PasportSerial
-            // 
-            this.PasportSerial.AutoSize = true;
-            this.PasportSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PasportSerial.Location = new System.Drawing.Point(12, 302);
-            this.PasportSerial.Name = "PasportSerial";
-            this.PasportSerial.Size = new System.Drawing.Size(155, 24);
-            this.PasportSerial.TabIndex = 34;
-            this.PasportSerial.Text = "Серия_паспорта";
-            this.PasportSerial.UseVisualStyleBackColor = true;
-            // 
-            // Address
-            // 
-            this.Address.AutoSize = true;
-            this.Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Address.Location = new System.Drawing.Point(12, 272);
-            this.Address.Name = "Address";
-            this.Address.Size = new System.Drawing.Size(164, 24);
-            this.Address.TabIndex = 33;
-            this.Address.Text = "Домашний_адрес";
-            this.Address.UseVisualStyleBackColor = true;
-            // 
-            // FatherName
-            // 
-            this.FatherName.AutoSize = true;
-            this.FatherName.Checked = true;
-            this.FatherName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.FatherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FatherName.Location = new System.Drawing.Point(12, 122);
-            this.FatherName.Name = "FatherName";
-            this.FatherName.Size = new System.Drawing.Size(102, 24);
-            this.FatherName.TabIndex = 32;
-            this.FatherName.Text = "Отчество";
-            this.FatherName.UseVisualStyleBackColor = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.AutoSize = true;
-            this.FirstName.Checked = true;
-            this.FirstName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FirstName.Location = new System.Drawing.Point(12, 92);
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(59, 24);
-            this.FirstName.TabIndex = 31;
-            this.FirstName.Text = "Имя";
-            this.FirstName.UseVisualStyleBackColor = true;
-            // 
-            // LastName
-            // 
-            this.LastName.AutoSize = true;
-            this.LastName.Checked = true;
-            this.LastName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LastName.Location = new System.Drawing.Point(12, 62);
-            this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(100, 24);
-            this.LastName.TabIndex = 30;
-            this.LastName.Text = "Фамилия";
-            this.LastName.UseVisualStyleBackColor = true;
-            // 
-            // GoInsertData
-            // 
-            this.GoInsertData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GoInsertData.Location = new System.Drawing.Point(12, 177);
-            this.GoInsertData.Name = "GoInsertData";
-            this.GoInsertData.Size = new System.Drawing.Size(346, 83);
-            this.GoInsertData.TabIndex = 32;
-            this.GoInsertData.Text = "Внести записи";
-            this.GoInsertData.UseVisualStyleBackColor = true;
-            this.GoInsertData.Click += new System.EventHandler(this.GoInsertData_Click);
+            this.goInsertData.Enabled = false;
+            this.goInsertData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.goInsertData.Location = new System.Drawing.Point(12, 166);
+            this.goInsertData.Name = "goInsertData";
+            this.goInsertData.Size = new System.Drawing.Size(346, 83);
+            this.goInsertData.TabIndex = 32;
+            this.goInsertData.Text = "Внести записи";
+            this.goInsertData.UseVisualStyleBackColor = true;
+            this.goInsertData.Click += new System.EventHandler(this.GoInsertData_Click);
             // 
             // groupBox1
             // 
@@ -371,14 +163,13 @@ namespace AutoInsertInDatabaseOnRussian
             this.listDatabases.Name = "listDatabases";
             this.listDatabases.Size = new System.Drawing.Size(184, 28);
             this.listDatabases.TabIndex = 0;
-            this.listDatabases.SelectedIndexChanged += new System.EventHandler(this.ListDatabases_SelectedValueChanged);
+            this.listDatabases.SelectedIndexChanged += new System.EventHandler(this.listDatabases_SelectedIndexChanged);
             // 
             // dataGrid
             // 
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Empty;
             this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -386,7 +177,8 @@ namespace AutoInsertInDatabaseOnRussian
             this.TypeColumn,
             this.AutoInsert,
             this.AdditionallyColumn});
-            this.dataGrid.Location = new System.Drawing.Point(566, 12);
+            this.dataGrid.Enabled = false;
+            this.dataGrid.Location = new System.Drawing.Point(390, 12);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.Size = new System.Drawing.Size(680, 456);
@@ -416,13 +208,15 @@ namespace AutoInsertInDatabaseOnRussian
             this.AutoInsert.Items.AddRange(new object[] {
             "null",
             "my insert",
+            "random",
             "Логин",
             "Пароль",
             "Фамилия",
             "Имя",
             "Отчество",
             "Дата рождения",
-            "Пол",
+            "Пол (в первую букву)",
+            "Пол (полностью)",
             "Номер телефона",
             "Электронная почта",
             "Домашний адрес",
@@ -444,49 +238,131 @@ namespace AutoInsertInDatabaseOnRussian
             this.AdditionallyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.AdditionallyColumn.Width = 125;
             // 
+            // genderUnset
+            // 
+            this.genderUnset.AutoSize = true;
+            this.genderUnset.Checked = true;
+            this.genderUnset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genderUnset.Location = new System.Drawing.Point(13, 25);
+            this.genderUnset.Name = "genderUnset";
+            this.genderUnset.Size = new System.Drawing.Size(78, 24);
+            this.genderUnset.TabIndex = 35;
+            this.genderUnset.TabStop = true;
+            this.genderUnset.Text = "Любой";
+            this.genderUnset.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.genderWoman);
+            this.groupBox2.Controls.Add(this.genderMan);
+            this.groupBox2.Controls.Add(this.genderUnset);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox2.Location = new System.Drawing.Point(12, 253);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(346, 61);
+            this.groupBox2.TabIndex = 36;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Пол";
+            // 
+            // genderWoman
+            // 
+            this.genderWoman.AutoSize = true;
+            this.genderWoman.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genderWoman.Location = new System.Drawing.Point(217, 25);
+            this.genderWoman.Name = "genderWoman";
+            this.genderWoman.Size = new System.Drawing.Size(92, 24);
+            this.genderWoman.TabIndex = 37;
+            this.genderWoman.Text = "Женский";
+            this.genderWoman.UseVisualStyleBackColor = true;
+            // 
+            // genderMan
+            // 
+            this.genderMan.AutoSize = true;
+            this.genderMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genderMan.Location = new System.Drawing.Point(108, 25);
+            this.genderMan.Name = "genderMan";
+            this.genderMan.Size = new System.Drawing.Size(92, 24);
+            this.genderMan.TabIndex = 36;
+            this.genderMan.Text = "Мужской";
+            this.genderMan.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.insertInAll);
+            this.groupBox4.Controls.Add(this.insertInCB);
+            this.groupBox4.Controls.Add(this.insertInDB);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox4.Location = new System.Drawing.Point(12, 320);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(346, 90);
+            this.groupBox4.TabIndex = 39;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Вставка данных";
+            // 
+            // insertInAll
+            // 
+            this.insertInAll.AutoSize = true;
+            this.insertInAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.insertInAll.Location = new System.Drawing.Point(97, 55);
+            this.insertInAll.Name = "insertInAll";
+            this.insertInAll.Size = new System.Drawing.Size(133, 24);
+            this.insertInAll.TabIndex = 37;
+            this.insertInAll.Text = "Оба варианта";
+            this.insertInAll.UseVisualStyleBackColor = true;
+            // 
+            // insertInCB
+            // 
+            this.insertInCB.AutoSize = true;
+            this.insertInCB.Checked = true;
+            this.insertInCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.insertInCB.Location = new System.Drawing.Point(189, 25);
+            this.insertInCB.Name = "insertInCB";
+            this.insertInCB.Size = new System.Drawing.Size(151, 24);
+            this.insertInCB.TabIndex = 36;
+            this.insertInCB.TabStop = true;
+            this.insertInCB.Text = "В буфер обмена";
+            this.insertInCB.UseVisualStyleBackColor = true;
+            // 
+            // insertInDB
+            // 
+            this.insertInDB.AutoSize = true;
+            this.insertInDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.insertInDB.Location = new System.Drawing.Point(6, 25);
+            this.insertInDB.Name = "insertInDB";
+            this.insertInDB.Size = new System.Drawing.Size(135, 24);
+            this.insertInDB.TabIndex = 35;
+            this.insertInDB.Text = "В базу данных";
+            this.insertInDB.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 480);
+            this.ClientSize = new System.Drawing.Size(1089, 483);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGrid);
-            this.Controls.Add(this.checkList);
-            this.Controls.Add(this.GoInsertData);
+            this.Controls.Add(this.goInsertData);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AutoInsertInDatabaseOnRussian";
+            this.Text = "AutoInsertInDatabase";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.checkList.ResumeLayout(false);
-            this.checkList.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countRecords)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel checkList;
-        private System.Windows.Forms.CheckBox PasportNumber;
-        private System.Windows.Forms.CheckBox Region;
-        private System.Windows.Forms.CheckBox City;
-        private System.Windows.Forms.CheckBox Country;
-        private System.Windows.Forms.CheckBox Email;
-        private System.Windows.Forms.CheckBox Phone;
-        private System.Windows.Forms.CheckBox Password;
-        private System.Windows.Forms.CheckBox Login;
-        private System.Windows.Forms.CheckBox Gender;
-        private System.Windows.Forms.CheckBox DateOfBirth;
-        private System.Windows.Forms.CheckBox PasportSerial;
-        private System.Windows.Forms.CheckBox Address;
-        private System.Windows.Forms.CheckBox FatherName;
-        private System.Windows.Forms.CheckBox FirstName;
-        private System.Windows.Forms.CheckBox LastName;
-        private System.Windows.Forms.Button GoInsertData;
+        private System.Windows.Forms.Button goInsertData;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown countRecords;
         private System.Windows.Forms.Label label3;
@@ -495,6 +371,14 @@ namespace AutoInsertInDatabaseOnRussian
         private System.Windows.Forms.ComboBox listTables;
         private System.Windows.Forms.ComboBox listDatabases;
         private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.RadioButton genderUnset;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton genderWoman;
+        private System.Windows.Forms.RadioButton genderMan;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton insertInAll;
+        private System.Windows.Forms.RadioButton insertInCB;
+        private System.Windows.Forms.RadioButton insertInDB;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn AutoInsert;

@@ -303,6 +303,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.AutoInsert.HeaderText = "Автозаполнение";
             this.AutoInsert.Items.AddRange(new object[] {
             "null",
+            "random",
             "my insert",
             "Логин",
             "Пароль",
@@ -325,8 +326,17 @@ namespace AutoInsertInDatabaseOnRussian
             "Регион",
             "Город",
             "Специальность",
-            "Название специальности",
-            "Название ОУ"});
+            "Направление",
+            "Учебное заведение",
+            "Серия/Номер диплома",
+            "Регистрационный номер",
+            "Дата окончания обучения",
+            "ИНН (для физ. лиц и ИП)",
+            "ИНН (для юр. лиц)",
+            "СНИЛС",
+            "ОМС",
+            "ОГРН",
+            "КПП"});
             this.AutoInsert.Name = "AutoInsert";
             this.AutoInsert.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.AutoInsert.Width = 150;
@@ -351,7 +361,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AutoInsertInDatabase v1.2";
+            this.Text = "AutoInsertInDatabase v1.3";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

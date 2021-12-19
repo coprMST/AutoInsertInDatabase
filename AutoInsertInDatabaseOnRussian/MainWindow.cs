@@ -28,9 +28,42 @@ namespace AutoInsertInDatabaseOnRussian
             listDatabases.Enabled = true;
         }
 
-        private void ListDatabases_SelectedValueChanged(object sender, EventArgs e)
+        private void listDatabases_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listTables.Items.Clear();
+            DataTable dataTable = GetData("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'");
 
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                string temp = dataTable.Rows[i][2].ToString();
+                if (temp == "sysdiagrams") { }
+                else listTables.Items.Add(temp);
+            }
+            listTables.Enabled = true;
+
+            if (listTables.SelectedIndex == -1)
+            {
+                goInsertData.Enabled = false;
+                countRecords.Enabled = false;
+                dataGrid.Enabled = false;
+                dataGrid.Rows.Clear();
+            }
+        }
+
+        private int[] Random (string text)
+        {
+            string[] nums = text.Split(new char[] { ' ' });
+            int num1 = int.Parse(nums[0]);
+            int num2 = int.Parse(nums[1]);
+
+            int[] randomNums = new int[int.Parse(countRecords.Value.ToString())];
+            Random rnd = new Random();
+            for (int i = 0; i < int.Parse(countRecords.Value.ToString()); i++)
+            {
+                randomNums[i] = rnd.Next(num1, num2);
+            }
+
+            return randomNums;
         }
 
         private async void GoInsertData_Click(object sender, EventArgs e)
@@ -93,6 +126,8 @@ namespace AutoInsertInDatabaseOnRussian
 
         private string GetCommandToInsert(JArray jsonObject)
         {
+            // site: randomdatatools.ru/developers/
+
             string namesTable = string.Empty;
             string valuesTable = string.Empty;
 
@@ -151,10 +186,33 @@ namespace AutoInsertInDatabaseOnRussian
                         case "Регион": valuesTable += $"'{jsonObject[i]["Region"].Value<string>()}', "; break;
                         case "Город": valuesTable += $"'{jsonObject[i]["City"].Value<string>()}', "; break;
                         case "Специальность": valuesTable += $"'{jsonObject[i]["EduSpecialty"].Value<string>()}', "; break;
-                        case "Название специальности": valuesTable += $"'{jsonObject[i]["EduProgram"].Value<string>()}', "; break;
-                        case "Название ОУ": valuesTable += $"'{jsonObject[i]["EduName"].Value<string>()}', "; break;
-                        case "my insert": valuesTable += $"'{dataGrid.Rows[j].Cells[3].Value}', "; break;     
-                        default: break;
+                        case "Направление": valuesTable += $"'{jsonObject[i]["EduProgram"].Value<string>()}', "; break;
+                        case "Учебное заведение": valuesTable += $"'{jsonObject[i]["EduName"].Value<string>()}', "; break;
+                        case "Серия/Номер диплома": valuesTable += $"'{jsonObject[i]["EduDocNum"].Value<string>()}', "; break;
+                        case "Регистрационный номер": valuesTable += $"'{jsonObject[i]["EduRegNumber"].Value<string>()}', "; break;
+                        case "Дата окончания обучения": valuesTable += $"'{jsonObject[i]["EduYear"].Value<string>()}', "; break;
+
+                        // ИНН, СНИЛС, ОМС и др.
+                        case "ИНН (для физ. лиц и ИП)": valuesTable += $"'{jsonObject[i]["inn_fiz"].Value<string>()}', "; break;
+                        case "ИНН (для юр. лиц)": valuesTable += $"'{jsonObject[i]["inn_ur"].Value<string>()}', "; break;
+                        case "СНИЛС": valuesTable += $"'{jsonObject[i]["snils"].Value<string>()}', "; break;
+                        case "ОМС": valuesTable += $"'{jsonObject[i]["oms"].Value<string>()}', "; break;
+                        case "ОГРН": valuesTable += $"'{jsonObject[i]["ogrn"].Value<string>()}', "; break;
+                        case "КПП": valuesTable += $"'{jsonObject[i]["kpp"].Value<string>()}', "; break;
+
+                        // Свои значения
+                        case "my insert": valuesTable += $"'{dataGrid.Rows[j].Cells[3].Value}', "; break;
+                        case "random":
+                            try
+                            {
+                                int[] abc = Random(dataGrid.Rows[j].Cells[3].Value.ToString());
+                                valuesTable += $"'{abc[i]}', ";
+                            }
+                            catch
+                            {
+                                valuesTable += "'0', ";
+                            }
+                            break;
                     }
                 }
 
@@ -238,28 +296,6 @@ namespace AutoInsertInDatabaseOnRussian
             }
 
             return dataTable;
-        }
-
-        private void listDatabases_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listTables.Items.Clear();
-            DataTable dataTable = GetData("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'");
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                string temp = dataTable.Rows[i][2].ToString();
-                if (temp == "sysdiagrams") { }
-                else listTables.Items.Add(temp);
-            }
-            listTables.Enabled = true;
-
-            if (listTables.SelectedIndex == -1)
-            {
-                goInsertData.Enabled = false;
-                countRecords.Enabled = false;
-                dataGrid.Enabled = false;
-                dataGrid.Rows.Clear();
-            }
         }
     }
 }

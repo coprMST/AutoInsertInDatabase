@@ -33,6 +33,7 @@ namespace AutoInsertInDatabaseOnRussian
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.goInsertData = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.countRecords = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,6 +41,10 @@ namespace AutoInsertInDatabaseOnRussian
             this.listTables = new System.Windows.Forms.ComboBox();
             this.listDatabases = new System.Windows.Forms.ComboBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AutoInsert = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AdditionallyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderUnset = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.genderWoman = new System.Windows.Forms.RadioButton();
@@ -48,11 +53,6 @@ namespace AutoInsertInDatabaseOnRussian
             this.insertInAll = new System.Windows.Forms.RadioButton();
             this.insertInCB = new System.Windows.Forms.RadioButton();
             this.insertInDB = new System.Windows.Forms.RadioButton();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AutoInsert = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AdditionallyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
@@ -91,6 +91,17 @@ namespace AutoInsertInDatabaseOnRussian
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Database  ";
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::AutoInsertInDatabaseOnRussian.Properties.Resources._4213447_arrow_load_loading_refresh_reload_restart_sync_115423;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(12, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 6;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.MainWindow_Load);
             // 
             // countRecords
             // 
@@ -174,6 +185,8 @@ namespace AutoInsertInDatabaseOnRussian
             // 
             this.dataGrid.AllowUserToAddRows = false;
             this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.AllowUserToResizeColumns = false;
+            this.dataGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -182,12 +195,87 @@ namespace AutoInsertInDatabaseOnRussian
             this.TypeColumn,
             this.AutoInsert,
             this.AdditionallyColumn});
+            this.dataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGrid.Enabled = false;
             this.dataGrid.Location = new System.Drawing.Point(393, 38);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.Size = new System.Drawing.Size(703, 398);
             this.dataGrid.TabIndex = 34;
+            this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.Frozen = true;
+            this.NameColumn.HeaderText = "Название столбца";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NameColumn.Width = 250;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.Frozen = true;
+            this.TypeColumn.HeaderText = "Тип данных";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TypeColumn.Width = 150;
+            // 
+            // AutoInsert
+            // 
+            this.AutoInsert.HeaderText = "Автозаполнение";
+            this.AutoInsert.Items.AddRange(new object[] {
+            "null",
+            "empty",
+            "my insert",
+            "random number",
+            "random text with format",
+            "random id record from table",
+            "unique id record from table",
+            "random date",
+            "Логин",
+            "Пароль",
+            "Фамилия",
+            "Имя",
+            "Отчество",
+            "Дата рождения",
+            "Пол (в первую букву)",
+            "Пол (полностью)",
+            "Номер телефона",
+            "Электронная почта",
+            "Домашний адрес",
+            "Код паспорта",
+            "Серия паспорта",
+            "Номер паспорта",
+            "Серия и номер паспорта",
+            "Кем выдан",
+            "Дата выдачи паспорта",
+            "Страна",
+            "Регион",
+            "Город",
+            "Специальность",
+            "Направление",
+            "Учебное заведение",
+            "Серия/Номер диплома",
+            "Регистрационный номер",
+            "Дата окончания обучения",
+            "ИНН (для физ. лиц и ИП)",
+            "ИНН (для юр. лиц)",
+            "СНИЛС",
+            "ОМС",
+            "ОГРН",
+            "КПП"});
+            this.AutoInsert.Name = "AutoInsert";
+            this.AutoInsert.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.AutoInsert.Width = 175;
+            // 
+            // AdditionallyColumn
+            // 
+            this.AdditionallyColumn.HeaderText = "Дополнительно";
+            this.AdditionallyColumn.Name = "AdditionallyColumn";
+            this.AdditionallyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.AdditionallyColumn.Width = 125;
             // 
             // genderUnset
             // 
@@ -285,90 +373,6 @@ namespace AutoInsertInDatabaseOnRussian
             this.insertInDB.Text = "В базу данных";
             this.insertInDB.UseVisualStyleBackColor = true;
             // 
-            // NameColumn
-            // 
-            this.NameColumn.Frozen = true;
-            this.NameColumn.HeaderText = "Название столбца";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            this.NameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NameColumn.Width = 250;
-            // 
-            // TypeColumn
-            // 
-            this.TypeColumn.Frozen = true;
-            this.TypeColumn.HeaderText = "Тип данных";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
-            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TypeColumn.Width = 150;
-            // 
-            // AutoInsert
-            // 
-            this.AutoInsert.HeaderText = "Автозаполнение";
-            this.AutoInsert.Items.AddRange(new object[] {
-            "null",
-            "empty",
-            "my insert",
-            "random number",
-            "random text with format",
-            "random id record from table",
-            "unique id record from table",
-            "random date",
-            "Логин",
-            "Пароль",
-            "Фамилия",
-            "Имя",
-            "Отчество",
-            "Дата рождения",
-            "Пол (в первую букву)",
-            "Пол (полностью)",
-            "Номер телефона",
-            "Электронная почта",
-            "Домашний адрес",
-            "Код паспорта",
-            "Серия паспорта",
-            "Номер паспорта",
-            "Серия и номер паспорта",
-            "Кем выдан",
-            "Дата выдачи паспорта",
-            "Страна",
-            "Регион",
-            "Город",
-            "Специальность",
-            "Направление",
-            "Учебное заведение",
-            "Серия/Номер диплома",
-            "Регистрационный номер",
-            "Дата окончания обучения",
-            "ИНН (для физ. лиц и ИП)",
-            "ИНН (для юр. лиц)",
-            "СНИЛС",
-            "ОМС",
-            "ОГРН",
-            "КПП"});
-            this.AutoInsert.Name = "AutoInsert";
-            this.AutoInsert.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.AutoInsert.Width = 175;
-            // 
-            // AdditionallyColumn
-            // 
-            this.AdditionallyColumn.HeaderText = "Дополнительно";
-            this.AdditionallyColumn.Name = "AdditionallyColumn";
-            this.AdditionallyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.AdditionallyColumn.Width = 125;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::AutoInsertInDatabaseOnRussian.Properties.Resources._4213447_arrow_load_loading_refresh_reload_restart_sync_115423;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(12, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 30);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.MainWindow_Load);
-            // 
             // menuStrip
             // 
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -376,7 +380,7 @@ namespace AutoInsertInDatabaseOnRussian
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1118, 25);
+            this.menuStrip.Size = new System.Drawing.Size(1114, 25);
             this.menuStrip.TabIndex = 40;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -391,7 +395,7 @@ namespace AutoInsertInDatabaseOnRussian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 483);
+            this.ClientSize = new System.Drawing.Size(1114, 461);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGrid);
@@ -400,9 +404,12 @@ namespace AutoInsertInDatabaseOnRussian
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1130, 500);
+            this.MinimumSize = new System.Drawing.Size(1130, 500);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AutoInsertInDatabase v1.4";
+            this.Text = "AutoInsertInDatabase v1.5";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

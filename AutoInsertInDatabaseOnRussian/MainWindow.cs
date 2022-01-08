@@ -3,10 +3,9 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
-using System.Linq;
 
 namespace AutoInsertInDatabaseOnRussian
 {
@@ -21,7 +20,10 @@ namespace AutoInsertInDatabaseOnRussian
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            listTables.Items.Clear();
+            listDatabases.SelectedIndex = -1;
             listDatabases.Items.Clear();
+            listTables.Enabled = false;
             DataTable dataTable = GetData("SELECT name FROM sys.databases");
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -57,6 +59,7 @@ namespace AutoInsertInDatabaseOnRussian
 
         DateTime RandomDay(string text)
         {
+            text = text.Trim();
             DateTime temp = new DateTime(2000, 1, 1);
 
             if (text.Contains(" "))
@@ -367,9 +370,6 @@ namespace AutoInsertInDatabaseOnRussian
                 dataGrid.Rows[i].Cells[1].Value = dataTable.Rows[i][5] + " (" + dataTable.Rows[i][6] + ")";
                 dataGrid.Rows[i].Cells[1].Value += dataTable.Rows[i][17].ToString() == "NO" ? " not null" : " null";
                 dataGrid.Rows[i].Cells[2].Value = AutoInsert.Items[0];
-
-                if (dataGrid.Rows[i].Cells[1].Value.ToString().Contains("identity") || dataGrid.Rows[i].Cells[1].Value.ToString().Contains("uniqueidentifier"))
-                    dataGrid.Rows[i].Cells[2].ReadOnly = true;
             }
         }
 
@@ -429,6 +429,13 @@ namespace AutoInsertInDatabaseOnRussian
                 "  >> random date\nВставка случайной даты. В ячейку записать дату в формате ДД.ММ.ГГГГ. При записи в ячейку одной даты будет сгенерирована дата от вставленной до текущей, в случае двух дат через пробел - дата между ними";
 
             MessageBox.Show(helpMessage, "Помощь по вставке данных");
+        }
+
+        private void dataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var editingControl = this.dataGrid.EditingControl as DataGridViewComboBoxEditingControl;
+            if (editingControl != null)
+                editingControl.DroppedDown = true;
         }
     }
 }
